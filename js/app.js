@@ -5,6 +5,7 @@
 var AudioPlayer = (function() {
 
   // Player vars
+
   var
   player = document.getElementById('ap'),
   playBtn,
@@ -27,7 +28,7 @@ var AudioPlayer = (function() {
   seeking = false,
   rightClick = false,
   apActive = false,
-  // playlist vars
+  // playlist
   pl,
   plLi,
   // settings
@@ -51,6 +52,7 @@ var AudioPlayer = (function() {
     settings = extend(settings, options);
 
     // get player elements
+
     playBtn        = player.querySelector('.ap-toggle-btn');
     prevBtn        = player.querySelector('.ap-prev-btn');
     nextBtn        = player.querySelector('.ap-next-btn');
@@ -85,10 +87,12 @@ var AudioPlayer = (function() {
     apActive = true;
 
     // Create playlist
+
     renderPL();
     plBtn.addEventListener('click', plToggle, false);
 
     // Create audio object
+
     audio = new Audio();
     audio.volume = settings.volume;
 
@@ -114,9 +118,7 @@ var AudioPlayer = (function() {
     }
   }
 
-/**
- *  PlayList methods
- */
+ // PlayList methods 
     function renderPL() {
       var html = [];
       var tpl =
@@ -223,9 +225,8 @@ var AudioPlayer = (function() {
     }
 
 
-/**
- *  Player methods
- */
+ // Player methods 
+
   function error() {
     !isEmptyList() && next();
   }
@@ -449,7 +450,8 @@ var AudioPlayer = (function() {
     })
   }
 
-/* Destroy method. Clear All */
+ // Destroy method. Clear All 
+
   function destroy() {
     if(!apActive) return;
 
@@ -475,6 +477,7 @@ var AudioPlayer = (function() {
     player.parentNode.removeChild(player);
 
     // Playlist
+
     pl.removeEventListener('click', listHandler, false);
     pl.parentNode.removeChild(pl);
 
@@ -483,9 +486,8 @@ var AudioPlayer = (function() {
   }
 
 
-/**
- *  Helpers
- */
+    // Helpers 
+
   function extend(defaults, options) {
     for(var name in options) {
       if(defaults.hasOwnProperty(name)) {
@@ -531,9 +533,8 @@ var AudioPlayer = (function() {
   };
 
 
-/**
- *  Public methods
- */
+// Public methods
+ 
   return {
     init: init,
     destroy: destroy
