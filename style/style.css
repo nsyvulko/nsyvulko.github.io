@@ -13,12 +13,15 @@ button {
   outline: 0;
   background: transparent;
 }
+main {
+  width: 100%;
+  position: absolute;
+  margin: 15% auto;
+}
+
 /* Player and board */
 .ap {
-  position: fixed;
-  right: 0;
-  top: 20%;
-  left: 0;
+  position: relative;
   height: 50px;
   margin: auto;
   font-family: Arial, sans-serif;
@@ -241,10 +244,7 @@ button {
 }
 /* PlayList */
 .pl-container {
-  position: fixed;
-  top: 30%;
-  right: 0;
-  left: 0;
+  position: relative;
   margin: auto;
   overflow: auto;
   font-family: Arial, sans-serif;
